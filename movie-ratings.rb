@@ -24,7 +24,7 @@ end
 
 def ask_title()
   puts "Please enter a title "
-  title = gets.chomp
+  gets.chomp.to_sym
 end
 
 
@@ -40,11 +40,10 @@ choice = ask_action()
 
 case choice
 when "add"
-  title = ask_title
+  title = ask_title()
   
   if movies[title.to_sym] == nil 
-    rating = ask_rating
-    movies[title] = rating
+    movies[title] = ask_rating()
     puts "The movie and the rating have been added"
     puts movies
     
@@ -54,12 +53,12 @@ when "add"
   
   
 when "update" 
-  title = ask_title
+  title = ask_title()
   if movies[title.to_sym] == nil
     puts "This movie does not exist in the database"
     
   else 
-    rating = ask_rating
+    rating = ask_rating()
     movies[title.to_sym] = rating.to_i
     puts movies
   end
