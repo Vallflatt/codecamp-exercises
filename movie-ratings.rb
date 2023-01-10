@@ -6,10 +6,25 @@ movies = {
   american_beauty: 4,
 }
 
+actions = ["add", "update", "display", "delete"]
+
+def ask_action()
+  actions = ["add", "update", "display", "delete"]
+  puts "Please select an action: add, update, display, delete"
+  choice = gets.chomp.downcase
+  
+  if actions.include?(choice)
+    choice
+  else
+    choice = ask_action()
+  end
+  
+end
+
 
 def ask_title()
   puts "Please enter a title "
-  title = gets.chomp
+  gets.chomp.to_sym
 end
 
 
@@ -21,16 +36,14 @@ end
 
 # start of programm
 
-puts "Please select an action: add, update, display, delete"
-choice = gets.chomp
+choice = ask_action()
 
 case choice
 when "add"
-  title = ask_title
+  title = ask_title()
   
   if movies[title.to_sym] == nil 
-    rating = ask_rating
-    movies[title] = rating
+    movies[title] = ask_rating()
     puts "The movie and the rating have been added"
     puts movies
     
@@ -40,19 +53,19 @@ when "add"
   
   
 when "update" 
-  title = ask_title
+  title = ask_title()
   if movies[title.to_sym] == nil
     puts "This movie does not exist in the database"
     
   else 
-    rating = ask_rating
+    rating = ask_rating()
     movies[title.to_sym] = rating.to_i
     puts movies
   end
   
 when "display" 
   movies.each { |title, rating| puts "#{title}: #{rating}" }
-  display
+  movies.display
   
 when "delete"
   title = ask_title
