@@ -6,6 +6,21 @@ movies = {
   american_beauty: 4,
 }
 
+actions = ["add", "update", "display", "delete"]
+
+def ask_action()
+  actions = ["add", "update", "display", "delete"]
+  puts "Please select an action: add, update, display, delete"
+  choice = gets.chomp.downcase
+  
+  if actions.include?("add") || actions.include?("update") || actions.include?("display") || actions.include?("delete")  
+    choice
+  else
+    ask_action()
+  end
+  
+end
+
 
 def ask_title()
   puts "Please enter a title "
@@ -21,8 +36,9 @@ end
 
 # start of programm
 
-puts "Please select an action: add, update, display, delete"
-choice = gets.chomp
+#puts ask_action()
+
+choice = ask_action()
 
 case choice
 when "add"
@@ -52,7 +68,7 @@ when "update"
   
 when "display" 
   movies.each { |title, rating| puts "#{title}: #{rating}" }
-  display
+  movies.display
   
 when "delete"
   title = ask_title
