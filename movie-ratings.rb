@@ -13,10 +13,10 @@ def ask_action()
   puts "Please select an action: add, update, display, delete"
   choice = gets.chomp.downcase
   
-  if actions.include?("add") || actions.include?("update") || actions.include?("display") || actions.include?("delete")  
+  if actions.include?(choice)
     choice
   else
-    ask_action()
+    choice = ask_action()
   end
   
 end
@@ -35,8 +35,6 @@ def ask_rating()
 end
 
 # start of programm
-
-#puts ask_action()
 
 choice = ask_action()
 
