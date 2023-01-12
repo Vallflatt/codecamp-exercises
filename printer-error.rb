@@ -4,7 +4,7 @@
 
 
 def printer_error(s)
-    printer_str = s.split("").select{ |letter| letter[/[^a-mA-M]/] }.length
+    printer_str = s.split("").select{ |letter| letter[/[^a-mA-M]/i] }.length
     "#{printer_str}/#{s.length}"
 end
 

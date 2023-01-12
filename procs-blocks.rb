@@ -18,7 +18,7 @@ round_down = Proc.new { |float| float.floor }
 ints = floats.collect(&round_down)
 print ints
 
-#a method that yields to a blocl that is a proc
+#a method that yields to a block that is a proc
 
 def greeter
     yield 
