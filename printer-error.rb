@@ -2,17 +2,17 @@
 # takes only strings greater or equal to one
 # errors are characters not from n to z
 
-=begin 
+
 def printer_error(s)
-    total = s.length.to_s
-    printer_str = s.split("").select{ |letter| letter[/[^a-mA-M]/] }.length.to_s
-    return "#{printer_str}/#{total}"
+    printer_str = s.split("").select{ |letter| letter[/[^a-mA-M]/] }.length
+    "#{printer_str}/#{s.length}"
 end
 
- puts printer_error("aaabbbbhaijjjm") 
-=end
+puts printer_error("aaabbbbhaijjjmnopqr") 
 
-def printer_error(s)
+#better way to do it
+
+def printer_error_1(s)
     "#{s.count('n-z')}/#{s.length}"
 end
-puts printer_error("aaabbbbhaijjjm") 
+puts printer_error_1("aaabbbbhaijjjm") 
