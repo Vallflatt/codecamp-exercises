@@ -1,0 +1,5 @@
+def filter_list(l)
+  l.select {|item| item.is_a? Integer }
+end
+  
+puts filter_list([1,2,'a','b'])
