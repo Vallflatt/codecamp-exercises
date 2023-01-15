@@ -18,6 +18,6 @@ class Computer
   end
 end
 
-my_computer = Computer.new("Vivi","password01")
+puts my_computer = Computer.new("Vivi","password01")
 
 
